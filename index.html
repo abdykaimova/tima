@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Миграция из Кыргызстана — Drill-down</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="ornament"></div>
+
+    <header class="hero" id="top">
+      <h1>Миграция из Кыргызстана: от страны к городу</h1>
+      <p>
+        Интерактивный data-storytelling проект с погружением: выберите страну, затем город,
+        изучите статистику, причины миграции и сравните направления.
+      </p>
+      <button class="btn" data-scroll="#drilldown">Начать исследование</button>
+    </header>
+
+    <main class="container">
+      <section class="panel filters-panel">
+        <h2>Фильтры</h2>
+        <div class="filters-grid">
+          <label>
+            Профессия
+            <select id="professionFilter">
+              <option value="all">Все</option>
+              <option value="student">Студент</option>
+              <option value="worker">Рабочий</option>
+              <option value="it">IT</option>
+            </select>
+          </label>
+          <label>
+            Причина
+            <select id="reasonFilter">
+              <option value="all">Все</option>
+              <option value="work">Работа</option>
+              <option value="education">Образование</option>
+              <option value="life">Качество жизни</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="panel" id="drilldown">
+        <div class="top-row">
+          <h2>Drill-down навигация</h2>
+          <button id="backBtn" class="btn ghost" disabled>Назад</button>
+        </div>
+
+        <div id="breadcrumbs" class="breadcrumbs">Карта направлений</div>
+
+        <div id="levelCountries" class="view active"></div>
+        <div id="levelCities" class="view"></div>
+        <div id="levelDetails" class="view"></div>
+      </section>
+
+      <section class="panel">
+        <h2>Сравнение городов</h2>
+        <div class="compare-grid">
+          <label>
+            Город 1
+            <select id="cityCompareA"></select>
+          </label>
+          <label>
+            Город 2
+            <select id="cityCompareB"></select>
+          </label>
+          <button id="compareBtn" class="btn">Сравнить</button>
+        </div>
+        <div id="compareResult" class="compare-result">Выберите два города для сравнения.</div>
+        <div class="chart-wrap">
+          <canvas id="compareChart"></canvas>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Контакты: research@tamyr.kg</p>
+      <p>Источники: Нацстатком КР, IOM, World Bank (оценочные данные)</p>
+      <p>Соцсети: @tamyr_insights</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
